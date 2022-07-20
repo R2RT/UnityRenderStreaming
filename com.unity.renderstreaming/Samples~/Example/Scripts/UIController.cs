@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Unity.RenderStreaming.Samples
 {
@@ -117,6 +118,12 @@ namespace Unity.RenderStreaming.Samples
             canvasGroup.alpha = 1f;
             text.text = c.ToString();
             timeTransition = 0;
+        }
+
+        public void ReloadScene()
+        {
+            var current = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(current.name);
         }
     }
 }
